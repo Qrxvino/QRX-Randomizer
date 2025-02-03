@@ -15,7 +15,17 @@ def Mode3():
         if rand == HowMuch3:
             print('It took',NUM,'attempts') 
             break
-
+        COMMAND = """
+    1.Exit
+    2.Restart
+    By qrxvino
+    """
+    print(COMMAND)
+    COMM = int(input('ENTER Num of command --> '))
+    if COMM == 1:
+        Mode()    
+    else:
+        Mode3()
 def Change():
     print('Max number for random 5 <--')
     HowMuch = int(input('Number of random --> '))
@@ -53,20 +63,9 @@ def Change():
         Mode()    
     else:
         Change()
-def Change2():
-    NUM = 0
-    print('Press Q to stop generate number')
-    time.sleep(3)
-    while True:
-        if keyboard.is_pressed('q'):
-            break
-        time.sleep(0.05)
-        rand = randint(a=1,b=999999)
-        NUM += 1
-        print('Num',NUM,'-->',  rand)
 def Mode():
     ChangeModeGUI = """
-    1.infinite mode
+    1.infinite mode #NOTWORKED
     2.Normal mode
     3.generate not yet ...
     """
@@ -76,6 +75,4 @@ def Mode():
         Change()
     elif ChangeMode == 3:
         Mode3()
-    elif ChangeMode == 1:
-        Change2()
 Mode()
