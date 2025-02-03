@@ -1,6 +1,21 @@
-import os
 import time
 from random import *
+def Mode3():
+    HowMuch3 = int(input('Number for search--> '))
+    MaxNumber3 = int(input('Max random number --> '))
+    NUM = 0
+    rand = 0
+    while rand != HowMuch3:
+        time.sleep(0.05)
+        randg = randint(a=1,b=MaxNumber3)
+        rand = randg
+        NUM += 1
+        if rand == HowMuch3:
+            print('|-->', rand, '<--|')
+        if rand == HowMuch3:
+            print('It took',NUM,'attempts') 
+            break
+
 def Change():
     print('Max number for random 5 <--')
     HowMuch = int(input('Number of random --> '))
@@ -39,33 +54,16 @@ def Change():
     else:
         Change()
 def Change2():
-    HowMuch2 = int(input('Number of random --> '))
-    MaxNumber2 = int(input('Max random number --> '))
     NUM = 0
-    while HowMuch2 != 0:
-        time.sleep(0.001)
-        rand = randint(a=1,b=MaxNumber2)
+    print('Press Q to stop generate number')
+    time.sleep(3)
+    while True:
+        if keyboard.is_pressed('q'):
+            break
+        time.sleep(0.05)
+        rand = randint(a=1,b=999999)
         NUM += 1
         print('Num',NUM,'-->',  rand)
-        HowMuch2 -= 1
-def Change3():
-    HowMuch3 = int(input('Number for search--> '))
-    MaxNumber3 = int(input('Max random number --> '))
-    NUM = 0
-    rand = 0
-    while rand != HowMuch3:
-        time.sleep(0.001)
-        randg = randint(a=1,b=MaxNumber3)
-        rand = randg
-        NUM += 1
-        if rand == HowMuch3:
-            print('|-->', rand, '<--|')
-        else:
-            print('-->', rand)
-        if rand == HowMuch3:
-            print('It took',NUM,'attempts') 
-            break
-
 def Mode():
     ChangeModeGUI = """
     1.infinite mode
@@ -77,8 +75,7 @@ def Mode():
     if ChangeMode == 2:
         Change()
     elif ChangeMode == 3:
-        Change3()
+        Mode3()
     elif ChangeMode == 1:
         Change2()
 Mode()
-
